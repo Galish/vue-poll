@@ -1,6 +1,6 @@
 export const pollList = [
 	{
-		id: '#12345',
+		id: '12345',
 		name: 'Test name',
 		description: 'some text...',
 		klass: 5,
