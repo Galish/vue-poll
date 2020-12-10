@@ -1,21 +1,30 @@
 <template>
-	<div>
-		{{ this.$route.params.id }}
-	</div>
+	<BasicLayout>
+		<poll-form
+			v-if="data"
+			:data="data"
+		/>
+	</BasicLayout>
 </template>
 
 <script>
+import BasicLayout from '@/components/Layout/Basic.vue'
+import PollForm from '@/components/Poll/Form'
 import { pollList as data } from '@/dummy-data.js'
 
 export default {
-	name: 'ListView',
+	name: 'EditView',
 	components: {
-		// PollList
+		BasicLayout,
+		PollForm
 	},
 	data() {
 		return {
-			data
+			data: null
 		}
+	},
+	created() {
+		this.data = data.find(({ id }) => id === this.$route.params.id)
 	},
 }
 </script>
