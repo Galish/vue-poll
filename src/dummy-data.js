@@ -12,15 +12,30 @@ export const pollList = [
 		lesson: 'математика',
 		questions: [
 			{
-				'question': 'some text',
-				'answers': [
+				id: 1111111,
+				text: 'Question text 1',
+				answers: [
 					{
-						'answer': 'some text',
-						'is_correct': false
+						text: 'some text 1',
+						is_correct: false
 					},
 					{
-						'answer': 'some text',
-						'is_correct': true
+						text: 'some text 2',
+						is_correct: true
+					}
+				]
+			},
+			{
+				id: 222222,
+				text: 'Question text 2',
+				answers: [
+					{
+						text: 'some text 1',
+						is_correct: false
+					},
+					{
+						text: 'some text 2',
+						is_correct: true
 					}
 				]
 			}

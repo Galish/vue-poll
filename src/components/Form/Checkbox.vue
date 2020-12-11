@@ -1,29 +1,23 @@
 <template>
 	<div
-		class="input-text"
+		class="checkbox"
 		:class="className"
 	>
+		<input
+			v-model="inputVal"
+			type="checkbox"
+			class="input"
+			:placeholder="placeholder"
+		>
+
+		<slot />
+
 		<label
 			v-if="label"
 			class="label"
 		>
 			{{ label }}
 		</label>
-
-		<textarea
-			v-if="multiline"
-			v-model="inputVal"
-			class="input textarea"
-			:placeholder="placeholder"
-		/>
-
-		<input
-			v-else
-			v-model="inputVal"
-			type="text"
-			class="input"
-			:placeholder="placeholder"
-		>
 
 		<div
 			v-if="description"
@@ -36,7 +30,7 @@
 
 <script>
 export default {
-	name: 'InputText',
+	name: 'Checkbox',
 	props: {
 		className: {
 			type: String,
@@ -51,8 +45,8 @@ export default {
 			default: ''
 		},
 		modelValue: {
-			type: String,
-			default: ''
+			type: Boolean,
+			default: false
 		},
 		multiline: {
 			type: Boolean,
@@ -77,7 +71,20 @@ export default {
 </script>
 
 <style scoped>
-.input-text {
+.checkbox {
+	position: relative;
+	padding-left: 30px;
+}
+.input {
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+.checkbox:not(:first-of-type) {
+	margin-top: 10px;
+}
+
+/* .input-text {
 	padding: 10px 0;
 }
 .label {
@@ -98,10 +105,10 @@ export default {
 	height: 100px;
 	font-family: Avenir, Helvetica, Arial, sans-serif;
 }
-.text {
+.text{
 	font-size: 0.75em;
 	color: #999;
 	display: block;
 	padding-top: 5px;
-}
+} */
 </style>

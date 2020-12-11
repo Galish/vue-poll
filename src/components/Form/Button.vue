@@ -11,6 +11,7 @@
 	<button
 		v-else
 		class="button"
+		:class="className"
 	>
 		<slot />
 	</button>
@@ -21,10 +22,12 @@ export default {
 	name: 'Button',
 	props: {
 		className: {
-			type: String
+			type: String,
+			default: ''
 		},
 		linkTo: {
-			type: String
+			type: String,
+			default: ''
 		}
 	}
 }
@@ -34,8 +37,9 @@ export default {
 .button {
 	font-size: 15px;
 	color: #000;
-	cursor: ;
+	cursor: pointer;
 	background-color: #ebebeb;
+	outline: none;
 	display: inline-block;
 	border: none;
 	padding: 5px 10px;
