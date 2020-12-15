@@ -56,7 +56,9 @@ export default {
 
 <style scoped>
 .swap-buttons {
-	float: right;
-	margin: 0 0 20px 20px;
+	display: inline-block;
+}
+.swap-buttons button:not(:first-child) {
+	margin-left: 10px;
 }
 </style>

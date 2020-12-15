@@ -16,7 +16,9 @@
 			multiline
 		/>
 
-		Questions list:
+		<div class="caption caption--secondary">
+			Questions list:
+		</div>
 
 		<question-form
 			v-for="(question, index) in questions"
@@ -28,8 +30,12 @@
 					v-model="questions"
 					:index="index"
 				/>
-			</template>
 
+				<delete-button
+					v-model="questions"
+					:index="index"
+				/>
+			</template>
 
 			<template #footer>
 				<add-button
@@ -52,6 +58,7 @@
 
 <script>
 import AddButton from '@/components/Poll/AddButton'
+import DeleteButton from '@/components/Poll/DeleteButton'
 import InputText from '@/components/Form/InputText'
 import QuestionForm from '@/components/Poll/QuestionForm'
 import SwapButtons from '@/components/Poll/SwapButtons'
@@ -61,6 +68,7 @@ export default {
 	name: 'PollForm',
 	components: {
 		AddButton,
+		DeleteButton,
 		InputText,
 		QuestionForm,
 		SwapButtons
@@ -93,5 +101,9 @@ export default {
 .caption {
 	font-size: 2em;
 	text-align: center;
+}
+.caption--secondary {
+	font-size: 1.5em;
+	padding-top: 20px;
 }
 </style>
