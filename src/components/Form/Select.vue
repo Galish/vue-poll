@@ -1,24 +1,21 @@
 <template>
 	<input-wrapper
-		class="input-text"
+		class="select"
 		:class="className"
 		:description="description"
 		:label="label"
 	>
-		<textarea
-			v-if="multiline"
+		<select
 			v-model="inputVal"
-			class="input textarea"
-			:placeholder="placeholder"
-		/>
-
-		<input
-			v-else
-			v-model="inputVal"
-			type="text"
-			class="input"
-			:placeholder="placeholder"
 		>
+			<option
+				v-for="option in options"
+				:key="option.value"
+				:value="option.value"
+			>
+				{{ option.text }}
+			</option>
+		</select>
 	</input-wrapper>
 </template>
 
@@ -26,7 +23,7 @@
 import InputWrapper from './InputWrapper'
 
 export default {
-	name: 'InputText',
+	name: 'Select',
 	components: {
 		InputWrapper
 	},
@@ -47,14 +44,12 @@ export default {
 			type: String,
 			default: ''
 		},
-		multiline: {
-			type: Boolean,
-			default: false
-		},
-		placeholder: {
-			type: String,
-			default: ''
-		},
+		options: {
+			type: Array,
+			default() {
+				return []
+			}
+		}
 	},
 	computed: {
 		inputVal: {
@@ -69,18 +64,6 @@ export default {
 }
 </script>
 
-<style scoped>
-.input {
-	width: 100%;
-	font-size: 1em;
-	display: block;
-	border: 1px solid #999;
-	border-radius: 5px;
-	box-sizing: border-box;
-	padding: 5px;
-}
-.input.textarea {
-	height: 100px;
-	font-family: Avenir, Helvetica, Arial, sans-serif;
-}
+<style>
+.select {}
 </style>

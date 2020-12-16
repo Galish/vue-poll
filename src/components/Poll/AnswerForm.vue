@@ -57,7 +57,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .answer-form {
 	padding: 10px 0;
 }

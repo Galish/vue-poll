@@ -1,7 +1,9 @@
 <template>
-	<div
+	<input-wrapper
 		class="checkbox"
 		:class="className"
+		:description="description"
+		:label="label"
 	>
 		<input
 			v-model="inputVal"
@@ -11,26 +13,17 @@
 		>
 
 		<slot />
-
-		<label
-			v-if="label"
-			class="label"
-		>
-			{{ label }}
-		</label>
-
-		<div
-			v-if="description"
-			class="text"
-		>
-			{{ description }}
-		</div>
-	</div>
+	</input-wrapper>
 </template>
 
 <script>
+import InputWrapper from './InputWrapper'
+
 export default {
 	name: 'Checkbox',
+	components: {
+		InputWrapper
+	},
 	props: {
 		className: {
 			type: String,
@@ -73,7 +66,7 @@ export default {
 <style scoped>
 .checkbox {
 	position: relative;
-	padding-left: 30px;
+	padding: 0 0 0 30px;
 }
 .input {
 	position: absolute;
@@ -83,32 +76,4 @@ export default {
 .checkbox:not(:first-of-type) {
 	margin-top: 10px;
 }
-
-/* .input-text {
-	padding: 10px 0;
-}
-.label {
-	font-weight: bold;
-	display: block;
-	padding-bottom: 5px;
-}
-.input {
-	width: 100%;
-	font-size: 1em;
-	display: block;
-	border: 1px solid #999;
-	border-radius: 5px;
-	box-sizing: border-box;
-	padding: 5px;
-}
-.input.textarea {
-	height: 100px;
-	font-family: Avenir, Helvetica, Arial, sans-serif;
-}
-.text{
-	font-size: 0.75em;
-	color: #999;
-	display: block;
-	padding-top: 5px;
-} */
 </style>

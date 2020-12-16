@@ -16,6 +16,12 @@
 			multiline
 		/>
 
+		<select-input
+			v-model="category"
+			label="Category"
+			:options="categoryOptions"
+		/>
+
 		<div class="caption caption--secondary">
 			Questions list:
 		</div>
@@ -61,6 +67,7 @@ import AddButton from '@/components/Poll/AddButton'
 import DeleteButton from '@/components/Poll/DeleteButton'
 import InputText from '@/components/Form/InputText'
 import QuestionForm from '@/components/Poll/QuestionForm'
+import SelectInput from '@/components/Form/Select'
 import SwapButtons from '@/components/Poll/SwapButtons'
 import { blankAnswer, blankQuestion } from '@/helpers'
 
@@ -71,6 +78,7 @@ export default {
 		DeleteButton,
 		InputText,
 		QuestionForm,
+		SelectInput,
 		SwapButtons
 	},
 	props: {
@@ -83,9 +91,15 @@ export default {
 	},
 	data() {
 		return {
-			name: this.data.name,
+			category: this.data.category,
 			description: this.data.description,
+			name: this.data.name,
 			questions: this.data.questions
+		}
+	},
+	computed: {
+		categoryOptions() {
+			return this.data.category_options.map(value => ({ value, text: value }))
 		}
 	},
 	created() {

@@ -4,12 +4,12 @@ export const pollList = [
 		name: 'Test name',
 		description: 'some text...',
 		klass: 5,
-		lesson_options: [
+		category_options: [
 			'русский язык',
 			'математика',
 			'окружающий мир'
 		],
-		lesson: 'математика',
+		category: 'математика',
 		questions: [
 			{
 				id: 1111111,
