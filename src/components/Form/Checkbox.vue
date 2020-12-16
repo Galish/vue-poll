@@ -1,6 +1,6 @@
 <template>
 	<input-wrapper
-		class="checkbox"
+		className="ui checkbox"
 		:class="className"
 		:description="description"
 		:label="label"
@@ -11,8 +11,9 @@
 			class="input"
 			:placeholder="placeholder"
 		>
-
-		<slot />
+		<label>
+			<slot />
+		</label>
 	</input-wrapper>
 </template>
 
@@ -65,14 +66,15 @@ export default {
 
 <style scoped>
 .checkbox {
-	position: relative;
-	padding: 0 0 0 30px;
+	/* position: relative; */
+	padding-top: 0;
+	padding-bottom: 0;
 }
-.input {
+/* .input {
 	position: absolute;
 	left: 0;
 	top: 0;
-}
+} */
 .checkbox:not(:first-of-type) {
 	margin-top: 10px;
 }

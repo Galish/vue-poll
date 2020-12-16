@@ -1,18 +1,24 @@
 <template>
-	<custom-button
+	<div
+		class="button"
 		@click="deleteItem"
 	>
-		X
-	</custom-button>
+		<Icon
+			icon="close"
+			className="icon-close"
+		/>
+	</div>
 </template>
 
 <script>
-import CustomButton from '@/components/Form/Button'
+// import CustomButton from '@/components/Form/Button'
+import Icon from '@/components/Icon'
 
 export default {
 	name: 'DeleteButton',
 	components: {
-		CustomButton
+		// CustomButton
+		Icon
 	},
 	props: {
 		modelValue: {
@@ -38,7 +44,17 @@ export default {
 </script>
 
 <style scoped>
-button {
-	margin-left: 20px;
+.button {
+	cursor: pointer;
+	display: inline-block;
+	margin-left: 10px;
+	opacity: .8;
+	padding: 2px;
+}
+.button:hover {
+	opacity: 1;
+}
+.icon-close {
+	margin: 0;
 }
 </style>

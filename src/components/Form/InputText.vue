@@ -81,6 +81,5 @@ export default {
 }
 .input.textarea {
 	height: 100px;
-	font-family: Avenir, Helvetica, Arial, sans-serif;
 }
 </style>

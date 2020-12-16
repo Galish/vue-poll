@@ -6,44 +6,62 @@
 		:to="linkTo"
 	>
 		<slot />
+
+		<Icon
+			v-if="icon"
+			:icon="icon"
+		/>
 	</router-link>
 
 	<button
 		v-else
-		class="button"
-		:class="className"
+		class="ui button"
+		:class="[className, color, size, { 'icon basic': icon}]"
 	>
 		<slot />
+
+		<Icon
+			v-if="icon"
+			:icon="icon"
+		/>
 	</button>
 </template>
 
 <script>
+import Icon from '@/components/Icon'
+
 export default {
 	name: 'Button',
+	components: {
+		Icon
+	},
 	props: {
 		className: {
+			type: String,
+			default: ''
+		},
+		color: {
+			type: String,
+			default: ''
+		},
+		icon: {
 			type: String,
 			default: ''
 		},
 		linkTo: {
 			type: String,
 			default: ''
-		}
+		},
+		size: {
+			type: String,
+			default: ''
+		},
 	}
 }
 </script>
 
 <style scoped>
-.button {
-	font-size: 15px;
-	color: #000;
-	cursor: pointer;
-	background-color: #ebebeb;
-	outline: none;
-	display: inline-block;
-	border: none;
-	padding: 5px 10px;
-}
+.button {}
 .button--link {
 	text-decoration: none;
 }

@@ -14,18 +14,8 @@ export default {
 html, body {
 	height: 100%;
 }
-#app {
-	min-height: 100%;
-	font-family: Avenir, Helvetica, Arial, sans-serif;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	color: #2c3e50;
+body {
 	background: #ebebeb;
-	padding: 40px;
-}
-* {
-	margin: 0;
-	padding: 0;
 }
 .page {
 	max-width: 800px;

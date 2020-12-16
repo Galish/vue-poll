@@ -7,6 +7,7 @@
 	>
 		<select
 			v-model="inputVal"
+			class="ui fluid dropdown"
 		>
 			<option
 				v-for="option in options"

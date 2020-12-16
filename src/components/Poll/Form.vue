@@ -59,11 +59,20 @@
 		>
 			+ Add question
 		</add-button>
+
+		<custom-button
+			size="large"
+			color="blue"
+			@click="handleSubmit"
+		>
+			Submit
+		</custom-button>
 	</div>
 </template>
 
 <script>
 import AddButton from '@/components/Poll/AddButton'
+import CustomButton from '@/components/Form/Button'
 import DeleteButton from '@/components/Poll/DeleteButton'
 import InputText from '@/components/Form/InputText'
 import QuestionForm from '@/components/Poll/QuestionForm'
@@ -75,6 +84,7 @@ export default {
 	name: 'PollForm',
 	components: {
 		AddButton,
+		CustomButton,
 		DeleteButton,
 		InputText,
 		QuestionForm,
@@ -105,6 +115,12 @@ export default {
 	created() {
 		this.blankAnswer = blankAnswer
 		this.blankQuestion = blankQuestion
+	},
+	methods: {
+		handleSubmit() {
+			console.log('Submit:', { ...this.$data });
+			console.log('questions:', this.questions);
+		}
 	}
 }
 </script>

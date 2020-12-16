@@ -62,12 +62,15 @@ export default {
 	padding: 10px 0;
 }
 .answer-form--with-actions {
-	padding-right: 50px;
+	padding-right: 34px;
 	position: relative;
 }
 .answer-text.input-text {
 	padding-top: 0;
 	padding-bottom: 0;
+}
+.answer-container {
+	display: block;
 }
 .actions {
 	position: absolute;
