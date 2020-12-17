@@ -5,20 +5,31 @@
 		:description="description"
 		:label="label"
 	>
-		<textarea
+		<div
 			v-if="multiline"
-			v-model="inputVal"
-			class="input textarea"
-			:placeholder="placeholder"
-		/>
-
-		<input
-			v-else
-			v-model="inputVal"
-			type="text"
-			class="input"
-			:placeholder="placeholder"
+			class="ui form"
+			data-children-count="1"
 		>
+			<textarea
+				v-if="multiline"
+				v-model="inputVal"
+				rows="3"
+				spellcheck="false"
+				:placeholder="placeholder"
+			/>
+		</div>
+
+		<div
+			v-else
+			class="ui fluid input"
+			data-children-count="1"
+		>
+			<input
+				v-model="inputVal"
+				type="text"
+				:placeholder="placeholder"
+			>
+		</div>
 	</input-wrapper>
 </template>
 
@@ -69,17 +80,8 @@ export default {
 }
 </script>
 
-<style scoped>
-.input {
-	width: 100%;
-	font-size: 1em;
-	display: block;
-	border: 1px solid #999;
-	border-radius: 5px;
-	box-sizing: border-box;
-	padding: 5px;
-}
-.input.textarea {
-	height: 100px;
+<style>
+textarea {
+	font-family: Lato, 'Helvetica Neue', Arial,Helvetica, sans-serif;
 }
 </style>

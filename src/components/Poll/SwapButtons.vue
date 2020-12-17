@@ -1,28 +1,32 @@
 <template>
 	<div class="swap-buttons">
-		<custom-button
+		<icon-button
 			v-if="index !== 0"
+			clickable
+			icon="arrow up"
 			@click="swap(index - 1)"
 		>
 			Up
-		</custom-button>
+		</icon-button>
 
-		<custom-button
+		<icon-button
 			v-if="index !== lastIndex"
+			clickable
+			icon="arrow down"
 			@click="swap(index + 1)"
 		>
 			Down
-		</custom-button>
+		</icon-button>
 	</div>
 </template>
 
 <script>
-import CustomButton from '@/components/Form/Button'
+import IconButton from '@/components/Icon'
 
 export default {
 	name: 'SwapButtons',
 	components: {
-		CustomButton
+		IconButton
 	},
 	props: {
 		modelValue: {

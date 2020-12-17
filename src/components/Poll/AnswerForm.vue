@@ -62,7 +62,6 @@ export default {
 	padding: 10px 0;
 }
 .answer-form--with-actions {
-	padding-right: 34px;
 	position: relative;
 }
 .answer-text.input-text {
@@ -74,7 +73,7 @@ export default {
 }
 .actions {
 	position: absolute;
-	right: 0;
+	right: -30px;
 	top: 10px;
 }
 </style>

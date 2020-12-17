@@ -46,6 +46,7 @@
 			<template #footer>
 				<add-button
 					v-model="question.answers"
+					className="add-answer"
 					:newItem="blankAnswer()"
 				>
 					+ Add Answer
@@ -55,18 +56,21 @@
 
 		<add-button
 			v-model="questions"
+			className="add-question"
 			:newItem="blankQuestion()"
 		>
 			+ Add question
 		</add-button>
 
-		<custom-button
-			size="large"
-			color="blue"
-			@click="handleSubmit"
-		>
-			Submit
-		</custom-button>
+		<div class="submit">
+			<custom-button
+				size="big"
+				color="blue"
+				@click="handleSubmit"
+			>
+				Submit
+			</custom-button>
+		</div>
 	</div>
 </template>
 
@@ -126,8 +130,15 @@ export default {
 </script>
 
 <style>
-.poll-form {}
-
+.add-question.add-button {
+	border: 1px solid #ebebeb;
+	margin-top: 10px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+.add-answer.add-button {
+	padding-bottom: 0;
+}
 .caption {
 	font-size: 2em;
 	text-align: center;
@@ -135,5 +146,9 @@ export default {
 .caption--secondary {
 	font-size: 1.5em;
 	padding-top: 20px;
+}
+.submit {
+	text-align: center;
+	margin-top: 20px;
 }
 </style>

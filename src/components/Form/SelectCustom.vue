@@ -12,8 +12,7 @@
 		>
 			<input
 				type="hidden"
-				name="user"
-				:value="{modelValue}"
+				:value="selected(modelValue).value"
 			>
 			<i class="dropdown icon" />
 
@@ -90,19 +89,9 @@ export default {
 			active: false
 		}
 	},
-	// computed: {
-	// 	inputVal: {
-	// 		get() {
-	// 			return this.modelValue;
-	// 		},
-	// 		set(value) {
-	// 			this.$emit('update:modelValue', value);
-	// 		}
-	// 	}
-	// },
 	methods: {
 		selected(value) {
-			return this.options.find(option => option.value === value)
+			return this.options.find(option => option.value === value) || {}
 		},
 		select(value) {
 			this.$emit('update:modelValue', value)
@@ -113,7 +102,3 @@ export default {
 	}
 }
 </script>
-
-<style>
-.select {}
-</style>

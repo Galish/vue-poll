@@ -1,5 +1,8 @@
 <template>
-	<div class="add-poll-button">
+	<div
+		class="add-button"
+		:class="className"
+	>
 		<custom-button
 			@click="handleClick"
 		>
@@ -17,6 +20,10 @@ export default {
 		CustomButton
 	},
 	props: {
+		className: {
+			type: String,
+			default: ''
+		},
 		modelValue: {
 			type: Object,
 			default() {
@@ -41,7 +48,7 @@ export default {
 </script>
 
 <style scoped>
-.add-poll-button {
+.add-button {
 	text-align: center;
 	padding: 10px;
 }

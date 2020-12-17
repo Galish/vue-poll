@@ -1,10 +1,11 @@
 <template>
 	<div
 		class="question"
+		:class="{'question--with-action': hasHeaderSlot}"
 	>
 		<div
 			v-if="hasHeaderSlot"
-			class="actions"
+			class="actions-container"
 		>
 			<slot name="header" />
 		</div>
@@ -27,7 +28,13 @@
 			/>
 		</answer-form>
 
-		<slot name="footer" />
+		<div
+			v-if="hasFooterSlot"
+			class="button-container"
+			:class="{'button-container--right-margin': hasHeaderSlot}"
+		>
+			<slot name="footer" />
+		</div>
 	</div>
 </template>
 
@@ -63,6 +70,9 @@ export default {
 		},
 		hasHeaderSlot() {
 			return !!this.$slots.header
+		},
+		hasFooterSlot() {
+			return !!this.$slots.footer
 		}
 	}
 }
@@ -71,12 +81,16 @@ export default {
 <style scoped>
 .question {
 	border: 1px solid #ebebeb;
-	margin-top: 20px;
+	margin-top: 10px;
 	padding: 20px;
 }
-.actions {
+.question--with-action {
+	padding-right: 40px;
+	padding-top: 40px;
+}
+.actions-container {
 	float: right;
-	margin: 0 0 20px 20px;
+	margin: -20px -30px 10px 20px;
 }
 .answer-container {
 	margin-top: 10px;
@@ -84,5 +98,8 @@ export default {
 .answer-text {
 	padding-top: 0;
 	padding-bottom: 0;
+}
+.button-container--right-margin {
+	margin-right: -20px;
 }
 </style>
