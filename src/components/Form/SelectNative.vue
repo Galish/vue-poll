@@ -24,7 +24,7 @@
 import InputWrapper from './InputWrapper'
 
 export default {
-	name: 'Select',
+	name: 'SelectNative',
 	components: {
 		InputWrapper
 	},

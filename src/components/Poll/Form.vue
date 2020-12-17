@@ -16,7 +16,7 @@
 			multiline
 		/>
 
-		<select-input
+		<select-custom
 			v-model="category"
 			label="Category"
 			:options="categoryOptions"
@@ -76,7 +76,7 @@ import CustomButton from '@/components/Form/Button'
 import DeleteButton from '@/components/Poll/DeleteButton'
 import InputText from '@/components/Form/InputText'
 import QuestionForm from '@/components/Poll/QuestionForm'
-import SelectInput from '@/components/Form/Select'
+import SelectCustom from '@/components/Form/SelectCustom'
 import SwapButtons from '@/components/Poll/SwapButtons'
 import { blankAnswer, blankQuestion } from '@/helpers'
 
@@ -88,7 +88,7 @@ export default {
 		DeleteButton,
 		InputText,
 		QuestionForm,
-		SelectInput,
+		SelectCustom,
 		SwapButtons
 	},
 	props: {
