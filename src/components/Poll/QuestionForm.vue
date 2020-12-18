@@ -21,6 +21,7 @@
 			v-for="(answer, index) in question.answers"
 			:key="answer.id"
 			v-model="question.answers[index]"
+			:single="question.answers.length === 1"
 		>
 			<delete-button
 				v-model="question.answers"

@@ -4,6 +4,7 @@
 		:class="{'answer-form--with-actions': hasSlot}"
 	>
 		<checkbox
+			v-if="!single"
 			v-model="answer.is_correct"
 			class="answer-container"
 		>
@@ -13,6 +14,13 @@
 				multiline
 			/>
 		</checkbox>
+
+		<input-text
+			v-else
+			v-model="answer.text"
+			className="answer-text"
+			multiline
+		/>
 
 		<div
 			v-if="hasSlot"
@@ -40,18 +48,39 @@ export default {
 				return {}
 			}
 		},
+		single: {
+			type: Boolean,
+			default: false
+		},
 	},
 	computed: {
 		answer: {
 			get() {
-				return this.modelValue;
+				return this.modelValue
 			},
 			set(value) {
-				this.$emit('update:modelValue', value);
+				this.updateModelValue(value)
 			}
 		},
 		hasSlot() {
 			return !!this.$slots.default
+		}
+	},
+	mounted() {
+		this.selectSingle()
+	},
+	updated() {
+		this.selectSingle()
+	},
+	methods: {
+		selectSingle() {
+			if (this.single && !this.modelValue.is_correct) {
+				this.updateModelValue({ is_correct: true })
+			}
+		},
+
+		updateModelValue(value) {
+			this.$emit('update:modelValue', value)
 		}
 	}
 }

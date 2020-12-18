@@ -2,40 +2,54 @@ export const pollList = [
 	{
 		id: '12345',
 		name: 'Test name',
-		description: 'some text...',
+		description: 'Description text here...',
 		klass: 5,
 		category_options: [
-			'русский язык',
-			'математика',
-			'окружающий мир'
+			'Category 1',
+			'Category 2',
+			'Category 3'
 		],
-		category: 'математика',
+		category: 'Category 2',
 		questions: [
 			{
 				id: 1111111,
-				text: 'Question text 1',
+				text: 'Question text number 1',
 				answers: [
 					{
-						text: 'some text 1',
+						text: 'Answer text 1',
 						is_correct: false
 					},
 					{
-						text: 'some text 2',
+						text: 'Answer text 2',
 						is_correct: true
 					}
 				]
 			},
 			{
 				id: 222222,
-				text: 'Question text 2',
+				text: 'Question text number 2',
 				answers: [
 					{
-						text: 'some text 1',
+						text: 'Answer text 1',
 						is_correct: false
 					},
 					{
-						text: 'some text 2',
+						text: 'Answer text 2',
 						is_correct: true
+					},
+					{
+						text: 'Answer text 3',
+						is_correct: false
+					}
+				]
+			},
+			{
+				id: 333333,
+				text: 'Question text number 3',
+				answers: [
+					{
+						text: 'Answer text 1',
+						is_correct: false
 					}
 				]
 			}

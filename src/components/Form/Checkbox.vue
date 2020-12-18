@@ -1,7 +1,7 @@
 <template>
 	<input-wrapper
 		className="ui checkbox"
-		:class="className"
+		:class="[className, {'disabled': disabled}]"
 		:description="description"
 		:label="label"
 	>
@@ -33,6 +33,10 @@ export default {
 		description: {
 			type: String,
 			default: ''
+		},
+		disabled: {
+			type: Boolean,
+			default: false
 		},
 		label: {
 			type: String,
@@ -66,16 +70,13 @@ export default {
 
 <style scoped>
 .checkbox {
-	/* position: relative; */
 	padding-top: 0;
 	padding-bottom: 0;
 }
-/* .input {
-	position: absolute;
-	left: 0;
-	top: 0;
-} */
 .checkbox:not(:first-of-type) {
 	margin-top: 10px;
+}
+.ui.checkbox.disabled input {
+	cursor: default;
 }
 </style>

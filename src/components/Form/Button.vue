@@ -1,7 +1,7 @@
 <template>
 	<router-link
 		v-if="linkTo"
-		class="button button--link"
+		class="ui button button--link"
 		:class="className"
 		:to="linkTo"
 	>
